@@ -1,0 +1,22 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserModel {
+  _id: ID!
+  name: String!
+  email: String!
+}
+
+type Query {
+  users: [UserModel!]!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): UserModel!
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+}
