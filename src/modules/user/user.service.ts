@@ -14,4 +14,12 @@ export class UserService {
   async create(name: string, email: string, password: string): Promise<User> {
     return this.userModel.create({ name, email, password });
   }
+
+  async filter(name: string): Promise<User[]> {
+    const payload = {
+      name: new RegExp(name, 'i'),
+    };
+
+    return this.userModel.find(payload);
+  }
 }

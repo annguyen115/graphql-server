@@ -2,21 +2,26 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type UserModel {
+type UserDto {
   _id: ID!
   name: String!
   email: String!
 }
 
 type Query {
-  users: [UserModel!]!
+  users: [UserDto!]!
+  filterUsers(filter: FilterUserRequestPayloadDto!): [UserDto!]!
+}
+
+input FilterUserRequestPayloadDto {
+  name: String!
 }
 
 type Mutation {
-  createUser(input: CreateUserInput!): UserModel!
+  createUser(input: CreateUserRequestPayload!): UserDto!
 }
 
-input CreateUserInput {
+input CreateUserRequestPayload {
   name: String!
   email: String!
   password: String!
