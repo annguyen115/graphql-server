@@ -15,7 +15,7 @@ export class UserResolver {
 
   @Mutation(() => UserModel)
   createUser(@Args('input') input: CreateUserInput): Promise<User> {
-    const { name, email } = input;
-    return this.userService.create(name, email);
+    const { name, email, password } = input;
+    return this.userService.create(name, email, password);
   }
 }
