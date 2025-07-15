@@ -6,6 +6,7 @@ import { UserDto } from './dtos/user.dto';
 import { FilterUserRequestPayloadDto } from './dtos/filter-user.dto';
 import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from '../../guards/gql-auth.guard';
+import { CurrentUser } from '../../decorators/user.decorator';
 
 @Resolver(() => UserDto)
 @UseGuards(GqlAuthGuard)
@@ -28,5 +29,10 @@ export class UserResolver {
   ): Promise<User[]> {
     const { name } = input;
     return this.userService.filter(name);
+  }
+
+  @Query(() => String)
+  getProfile(@CurrentUser() user: any) {
+    return `Hello, ${user.username}`;
   }
 }

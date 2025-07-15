@@ -11,6 +11,7 @@ type UserDto {
 type Query {
   users: [UserDto!]!
   filterUsers(filter: FilterUserRequestPayloadDto!): [UserDto!]!
+  getProfile: String!
 }
 
 input FilterUserRequestPayloadDto {
