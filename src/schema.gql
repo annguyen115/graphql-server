@@ -19,6 +19,7 @@ input FilterUserRequestPayloadDto {
 
 type Mutation {
   createUser(input: CreateUserRequestPayload!): UserDto!
+  login(username: String!, password: String!): String!
 }
 
 input CreateUserRequestPayload {

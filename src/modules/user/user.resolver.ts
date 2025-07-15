@@ -4,8 +4,11 @@ import { User } from './user.schema';
 import { CreateUserRequestPayload } from './dtos/create-user.dto';
 import { UserDto } from './dtos/user.dto';
 import { FilterUserRequestPayloadDto } from './dtos/filter-user.dto';
+import { UseGuards } from '@nestjs/common';
+import { GqlAuthGuard } from '../../guards/gql-auth.guard';
 
 @Resolver(() => UserDto)
+@UseGuards(GqlAuthGuard)
 export class UserResolver {
   constructor(private userService: UserService) {}
 
